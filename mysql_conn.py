@@ -11,7 +11,13 @@ def sql_conn(app):
     mySQL.init_app(app)
     return mySQL.connect()
 
-def exec_sql(query, conn):
+def exec_sql(query, conn, force_json=False):
     cursor = conn.cursor()
     cursor.execute(query)
-    return [dict((cursor.description[i][0], value) for i, value in enumerate(row)) for row in cursor.fetchall()]
+    if not force_json:
+        data = cursor.fetchall()
+    else:
+        data = [dict((cursor.description[i][0], value) for i, value in enumerate(row)) for row in cursor.fetchall()]
+    conn.commit()
+    cursor.close()
+    return data
