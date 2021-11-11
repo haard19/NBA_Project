@@ -1,10 +1,12 @@
 from os import abort
-from flask import Flask, request
+import re, enum
+from flask import Flask, request, render_template
 from werkzeug.utils import redirect
 from mysql_conn import sql_conn
+import json
 from scenarios import login_api, signup_api, index_api, fan_home_api, view_fantasy_team_api
 from scenarios import create_fantasy_team_view, add_fantasy_team_view, view_all_messages_api
-from scenarios import add_message_api
+from scenarios import add_message_api, manager_home_view
 
 app = Flask(__name__)
 
@@ -18,32 +20,40 @@ def index():
     redirect('/login')
     return data
 
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['POST', 'GET'])
 def login():
-    request_data = request.get_json()
-    username = request_data['username']
-    pwd = request_data['password']
-    if not username or not pwd:
-        abort()
+    if request.method == 'GET':
+        return render_template('login.html')
     else:
-        data = login_api.success(username, pwd, conn)
-        if data:
-            global USER_ID
-            USER_ID = data
-            if request_data['type'] == 'Fan':
-                return redirect('/fan_home')
-            else:
-                return redirect('/manager_home')
+        request_data = json.loads(json.dumps(request.form))
+        username = request_data.get('email')
+        pwd = request_data.get('password')
+        if not username or not pwd:
+            abort()
         else:
-            return abort()
+            data = login_api.success(username, pwd, conn)
+            if data:
+                global USER_ID
+                USER_ID = data
+                if request_data['type'] == 'Fan':
+                    return redirect('/fan_home')
+                else:
+                    return redirect('/manager-home')
+            else:
+                return abort()
 
-@app.route('/signup', methods=['POST'])
+@app.route('/signup', methods=['POST', 'GET'])
 def signup():
-    request_data = request.get_json()
-    if signup_api.success(request_data, conn):
-        return redirect('/login')
+    if request.method == 'GET':
+        data = json.loads(signup_api.give_data(conn))
+        print(data)
+        return render_template('register.html', data=data)
     else:
-        abort()
+        request_data = json.loads(json.dumps(request.form))
+        if signup_api.success(request_data, conn):
+            return render_template('login.html')
+        else:
+            abort()
 
 @app.route('/fan_home', methods=['POST', 'GET'])
 def fan_home():
@@ -78,7 +88,14 @@ def add_message():
     data = add_message_api.get_info(conn, USER_ID, message)
     return redirect('/message-board')
     
-
+@app.route('/manager-home', methods=['GET', 'POST'])
+def manager_home():
+    if request.method == 'GET':
+        data = json.loads(manager_home_view.get_info(conn, USER_ID))
+        my_team=data[0]
+        data1 = data[1]
+        print(data1)
+        return render_template('manager.html', data=my_team, data1 = data1)
 
 if __name__ == '__main__':
     app.run(debug=False, port=5000)

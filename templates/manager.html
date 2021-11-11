@@ -1,0 +1,76 @@
+<html>
+<head>
+    <title>My Team</title>
+    <style>
+        table, td, th {
+            border: 1px solid black;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 70%;
+        }
+
+        th {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <form class="manager" method="post">
+        <h3> Match History</h3>
+        Team Name: {{data.get('t_name')}}
+        <table>
+            <thread>
+            <th>Date</th>
+            <th>Opponent team name</th>
+            <th>Win</th>
+            </thread>
+            <tbody>
+                {% for row in data1 %}
+                <tr>
+                    {% for d in row %}
+                    <td>{{ d }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h3> Player statistic by match</h3>
+        <select id="bymatch" name="match">
+            <option disabled selected>Match Date</option>
+            {% for d in data1 %}
+            <option>
+                {{ d[0] }}
+            </option>
+            {% endfor %}
+        </select>
+        <input type="submit" name="action" value=">>" />
+        <br><br>
+        Selected date: {{selected_option}}
+        <table>
+            <thead>
+            <th>Player</th>
+            <th>Total points</th>
+            <th>FGA</th>
+            <th>FGM</th>
+            <th>3p%</th>
+            <th>3PA</th>
+            <th>3PM</th>
+            </thead>
+            <tbody>
+                {% for row in data2 %}
+                <tr>
+                    {% for d in row %}
+                    <td>{{ d }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br><br>
+        <input type="submit" name="action" value="Contract" />
+        <br><br>
+</body>
+</html>
