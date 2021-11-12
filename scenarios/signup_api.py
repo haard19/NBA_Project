@@ -1,6 +1,7 @@
 from mysql_conn import exec_sql
 import json
 
+
 def success(request_data, conn):
     pwd = request_data.get('password')
     last_name = request_data.get('lastname')
@@ -17,6 +18,7 @@ def success(request_data, conn):
         print("In 1")
         return True
     return False
+
 
 def give_data(conn):
     query = "SELECT t_id, t_name FROM Team;"

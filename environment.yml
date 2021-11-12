@@ -1,0 +1,6 @@
+name: NBA_Proj_Env
+channels:
+  - conda-forge
+dependencies:
+  - flask
+  - flask-mysql

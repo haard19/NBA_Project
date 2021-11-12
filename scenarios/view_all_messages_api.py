@@ -1,6 +1,7 @@
 from mysql_conn import exec_sql
 import json
 
+
 def get_info(conn):
     query = f"""
     SELECT f_id, CAST(msg_timestamp AS CHAR) AS msg_timestamp, msg_content FROM Message

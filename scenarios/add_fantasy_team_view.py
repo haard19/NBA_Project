@@ -1,6 +1,6 @@
 from mysql_conn import exec_sql
 import json
-import pandas as pd
+
 
 def get_info(conn, fan_id, player_ids, team_name):
     query = f"""
