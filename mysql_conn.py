@@ -2,14 +2,16 @@ from flaskext.mysql import MySQL
 from flask import jsonify
 import json
 
+
 def sql_conn(app):
     mySQL = MySQL()
-    app.config['MYSQL_DATABASE_USER'] = 'haard'
-    app.config['MYSQL_DATABASE_PASSWORD'] = 'password'
+    app.config['MYSQL_DATABASE_USER'] = 'root'
+    app.config['MYSQL_DATABASE_PASSWORD'] = 'Root@4321'
     app.config['MYSQL_DATABASE_DB'] = 'NBA_Project'
     app.config['MYSQL_DATABASE_HOST'] = 'localhost'
     mySQL.init_app(app)
     return mySQL.connect()
+
 
 def exec_sql(query, conn, force_json=False):
     cursor = conn.cursor()

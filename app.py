@@ -9,16 +9,16 @@ from scenarios import create_fantasy_team_view, add_fantasy_team_view, view_all_
 from scenarios import add_message_api, manager_home_view
 
 app = Flask(__name__)
-
 USER_ID = -1
-
 conn = sql_conn(app)
 
-@app.route('/index', methods=['GET'])
+
+@app.route('/', methods=['GET'])
 def index():
     data = index_api.get_info(conn)
     redirect('/login')
     return data
+
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
@@ -42,6 +42,7 @@ def login():
             else:
                 return abort()
 
+
 @app.route('/signup', methods=['POST', 'GET'])
 def signup():
     if request.method == 'GET':
@@ -55,20 +56,24 @@ def signup():
         else:
             abort()
 
+
 @app.route('/fan_home', methods=['POST', 'GET'])
 def fan_home():
     data = fan_home_api.get_info(conn, USER_ID)
     return data
+
 
 @app.route('/view_fantasy_team', methods=['POST', 'GET'])
 def view_fantasy_team():
     data = view_fantasy_team_api.get_info(conn, USER_ID)
     return data
 
+
 @app.route('/create_fantasy_team', methods=['GET'])
 def create_fantasy_team():
     data = create_fantasy_team_view.get_info(conn)
     return data
+
 
 @app.route('/add_fantasy_team', methods=['POST'])
 def add_fantasy_team():
@@ -77,25 +82,34 @@ def add_fantasy_team():
     data = add_fantasy_team_view.get_info(conn, USER_ID, player_ids, team_name)
     return data
 
+
 @app.route('/message-board', methods=['GET'])
 def view_messages():
     data = view_all_messages_api.get_info(conn)
     return data
+
 
 @app.route('/add-message', methods=['POST'])
 def add_message():
     message = request.get_json()['message']
     data = add_message_api.get_info(conn, USER_ID, message)
     return redirect('/message-board')
-    
+
+
 @app.route('/manager-home', methods=['GET', 'POST'])
 def manager_home():
+    data = manager_home_view.get_my_team(conn, USER_ID)
+    data1 = manager_home_view.get_info(conn, data)
     if request.method == 'GET':
-        data = json.loads(manager_home_view.get_info(conn, USER_ID))
-        my_team=data[0]
-        data1 = data[1]
-        print(data1)
-        return render_template('manager.html', data=my_team, data1 = data1)
+        return render_template('manager.html', data=data, data1=data1)
+    else:
+        if request.form['action'] == "Contract":
+            return redirect('/contract')
+        elif request.form['action'] == ">>":
+            selected_option = str(request.form.get('match'))
+            data2 = manager_home_view.get_match_stats(conn, data, selected_option)
+            return render_template('manager.html', data=data, data1=data1, data2=data2, selected_option=selected_option, team_name=data['t_name'])
+
 
 if __name__ == '__main__':
     app.run(debug=False, port=5000)

@@ -1,6 +1,7 @@
 from mysql_conn import exec_sql
 import json
 
+
 def get_info(conn, fan_id):
     query = f"""
     SELECT p.p_name, CAST(st.total_points AS unsigned) AS Total_Points, CAST(st.FGA AS unsigned) as FGA, 

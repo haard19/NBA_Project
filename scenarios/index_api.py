@@ -1,6 +1,7 @@
 from mysql_conn import exec_sql
 import json
 
+
 def get_info(conn):
     query = """
     SELECT tm.t_name AS Team, M AS P, W AS W, (M-W) AS L, W*3 AS Points

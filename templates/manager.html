@@ -22,7 +22,7 @@
         Team Name: {{data.get('t_name')}}
         <table>
             <thread>
-            <th>Date</th>
+            <th>Date & Time</th>
             <th>Opponent team name</th>
             <th>Win</th>
             </thread>
@@ -39,7 +39,7 @@
 
         <h3> Player statistic by match</h3>
         <select id="bymatch" name="match">
-            <option disabled selected>Match Date</option>
+            <option disabled selected>Match Date & Time</option>
             {% for d in data1 %}
             <option>
                 {{ d[0] }}
@@ -48,7 +48,7 @@
         </select>
         <input type="submit" name="action" value=">>" />
         <br><br>
-        Selected date: {{selected_option}}
+        Selected Date & Time: {{selected_option}}
         <table>
             <thead>
             <th>Player</th>
