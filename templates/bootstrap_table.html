@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+       
+        <th>Team</th>
+        <th>Total Points</th>
+        <th>Wins</th>
+        <th>Losses</th>
+        <th>Points%</th>
+        
+      </tr>
+      <tbody>
+      {% for user in data %}
+        <tr>
+          <td>{{ user.Team }}</td>
+          <td>{{ user.P }}</td>
+          <td>{{ user.W }}</td>
+          <td>{{ user.L }}</td>
+          <td>{{ user.Points }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+    </thead>
+    
+  </table>
+
+
+  <table id="data_two" class="table table-striped">
+    <thead>
+      <tr>
+       
+        <th>Player</th>
+        <th>Total Points</th>
+        <th>FGA</th>
+        <th>FGM</th>
+        <th>3PA</th>
+        
+        
+      </tr>
+     <tbody>
+      {% for item in data_two %}
+        <tr>
+          <td>{{ item.Player }}</td>
+          <td>{{ item.Total_Points}}</td>
+          <td>{{ item.FGA }}</td>
+          <td>{{ item.FGM }}</td>
+          <td>{{item.get('3PA')}}</td>
+         
+        </tr>
+      {% endfor %}
+    </tbody>
+    </thead>
+  </table>
+
+{% endblock %}
