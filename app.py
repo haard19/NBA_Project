@@ -1,5 +1,4 @@
 from os import abort
-import re, enum
 from flask import Flask, request, render_template
 from werkzeug.utils import redirect
 from mysql_conn import sql_conn
@@ -16,8 +15,14 @@ conn = sql_conn(app)
 @app.route('/', methods=['GET'])
 def index():
     data = index_api.get_info(conn)
-    redirect('/login')
-    return data
+    return render_template('bootstrap_table.html', data = data['team'], data_two = data['player'])
+
+
+@app.route('/logout', methods=['GET'])
+def logout():
+    global USER_ID
+    USER_ID = -1
+    return redirect('/')
 
 
 @app.route('/login', methods=['POST', 'GET'])

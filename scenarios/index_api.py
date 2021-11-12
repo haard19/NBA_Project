@@ -36,4 +36,4 @@ def get_info(conn):
         "team": data_0,
         "player": data_1
     }
-    return json.dumps(final)
+    return final
