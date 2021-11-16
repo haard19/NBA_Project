@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <title>NBA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <div style='float: right;' class="hidden-overlay hidden-overlay--large-percent" > <a   href="/view-fantasy-team"> Fantasy Team</a> </div> 
+  <div class="hidden-overlay hidden-overlay--large-percent" > <a   href="/logout"> Logout</a> </div>
+  <br></br>
+    <div style='float: right;' class="hidden-overlay hidden-overlay--large-percent" > <a   href="/message-board"> Message Board</a> </div>
+  <style>
+    .hidden-overlay--large-percent{font-size: 150%}
+    .hidden-overlay--large-rem{font-size: 1.5rem}
+    .hidden-overlay--large-rem{font-size: 1.5em}
+    .hidden-overlay--large-px{font-size: 20px}
+</style>
+  </head>
+  <br>
+  </br>
+  <body>
+    <div class="container">
+      <h1>{{ title }}</h1>
+      <hr>
+      {% block content %}{% endblock %}
+    </div>
+    {% block scripts %}{% endblock %}
+  </body>
+</html>
