@@ -66,7 +66,7 @@ def signup():
 @app.route('/fan_home', methods=['POST', 'GET'])
 def fan_home():
     data = fan_home_api.get_info(conn, USER_ID)
-    return render_template('bootstrap_dupli.html', data = data['team'], data_two = data['player'])
+    return render_template('bootstrap_dupli.html', data=data['team'], data_two = data['player'])
 
 
 @app.route('/view_fantasy_team', methods=['POST', 'GET'])
@@ -110,7 +110,7 @@ def manager_home():
         return render_template('manager.html', data=data, data1=data1)
     else:
         if request.form['action'] == "Contract":
-            return redirect('/contract')
+            return redirect('/contracts')
         elif request.form['action'] == ">>":
             selected_option = str(request.form.get('match'))
             data2 = manager_home_view.get_match_stats(conn, data, selected_option)
@@ -120,14 +120,15 @@ def manager_home():
 @app.route('/contracts', methods=['GET', 'POST'])
 def contracts():
     data = contracts_api.get_info(conn, USER_ID, request)
-    if not data:
-        return redirect('/manager-home')
-    return render_template('contract.html', data1 = data.get("data1"), data2 = data.get("data2"), team_name = data.get("team_name"))
+    if request.method == 'POST':
+        if request.form['action'] == "Back":
+            return redirect('/manager-home')
+    return render_template('contract.html', data1=data.get("data1"), data2=data.get("data2"), team_name=data.get("team_name"))
 
 
-@app.route("/update_current_contract/<p_id>", methods=['POST', 'GET'])
+@app.route("/update_current_contract/<p_id>", methods=['POST', 'GETq'])
 def update_current_contract(p_id):
-    data = update_contract.update_current_contract(conn, p_id, request)
+    data = update_contract.update_current_contract(conn, USER_ID, p_id, request)
     if not data:
         return redirect('/contracts')
     return data
@@ -135,10 +136,11 @@ def update_current_contract(p_id):
 
 @app.route("/create_contract/<p_id>", methods=['POST', 'GET'])
 def create_contract(p_id):
-    data = create_contract_api.create_contract(conn, p_id, request)
+    data = create_contract_api.create_contract(conn, USER_ID, p_id, request)
     if not data:
         return redirect('/contracts')
     return data
+
 
 if __name__ == '__main__':
     app.run(debug=False, port=5000)
