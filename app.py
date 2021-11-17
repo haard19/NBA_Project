@@ -3,9 +3,9 @@ from flask import Flask, request, render_template
 from werkzeug.utils import redirect
 from mysql_conn import sql_conn
 import json
-from scenarios import login_api, signup_api, index_api, fan_home_api, view_fantasy_team_api
-from scenarios import create_fantasy_team_view, add_fantasy_team_view, view_all_messages_api
-from scenarios import add_message_api, manager_home_view
+import login_api, signup_api, index_api, fan_home_api, view_fantasy_team_api
+import create_fantasy_team_view, add_fantasy_team_view, view_all_messages_api
+import add_message_api, manager_home_view
 
 app = Flask(__name__)
 USER_ID = -1
@@ -65,13 +65,13 @@ def signup():
 @app.route('/fan_home', methods=['POST', 'GET'])
 def fan_home():
     data = fan_home_api.get_info(conn, USER_ID)
-    return data
+    return render_template('fan.html', data=data)
 
 
 @app.route('/view_fantasy_team', methods=['POST', 'GET'])
 def view_fantasy_team():
     data = view_fantasy_team_api.get_info(conn, USER_ID)
-    return data
+    return render_template('fantasyteam.html', data=data)
 
 
 @app.route('/create_fantasy_team', methods=['GET'])
@@ -91,7 +91,7 @@ def add_fantasy_team():
 @app.route('/message-board', methods=['GET'])
 def view_messages():
     data = view_all_messages_api.get_info(conn)
-    return data
+    return render_template('messageboard.html', data=data)
 
 
 @app.route('/add-message', methods=['POST'])

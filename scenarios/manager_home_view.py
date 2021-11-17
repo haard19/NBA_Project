@@ -1,10 +1,12 @@
-from app import USER_ID
+# from app import USER_ID
 from mysql_conn import exec_sql
 import json
 
+USER_ID = -1
 
 def get_my_team(conn, USER_ID):
-    query_0 = f"""SELECT t.t_id, t.t_name FROM Team t WHERE t.mg_id = {USER_ID};"""
+    print(USER_ID)
+    query_0 = f"""SELECT t.t_id, t.t_name FROM Team t WHERE t.mg_id = {USER_ID+1};"""
     return exec_sql(query_0, conn, True)[0]
 
 

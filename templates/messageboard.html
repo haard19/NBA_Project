@@ -1,0 +1,56 @@
+<doctype html="">
+    <title>Message Board</title>
+    <style>
+        table, td, th {
+            border: 1px solid black;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 70%;
+        }
+
+        th {
+            text-align: left;
+        }
+    </style>
+    <h3>Message Board</h3>
+    {% with messages = get_flashed_messages() %}
+    {% for msg in messages %}
+    <div class = 'display' color = 'red'> {{msg}}</div>
+    {% endfor %}
+    {% endwith %}
+    
+    <body>
+        <form class="messageboard" method="post">
+        <table>
+            <thread>
+            <th>Date</th>
+            <th>Message Content</th>
+            </thread>
+            <tbody>
+                {% for row in data1 %}
+                <tr>
+                    {% for d in row %}
+                    <td>{{ d }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <h3>Previously Posted Message by Me</h3>
+        {{data2}}
+            <br><br>
+            <h2>Post New Message:</h2> 
+            <input type="text" class="update_contr" name="message" placeholder="Type message"/>
+            <input type="submit" name="action" value="Post" />
+            <br><br>
+            
+            <input type="submit" name="action" value="Back" />
+           
+        </form>
+        
+        <br><br>
+        
+    </body>
+    </doctype>

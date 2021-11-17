@@ -5,7 +5,7 @@ import json
 
 def sql_conn(app):
     mySQL = MySQL()
-    app.config['MYSQL_DATABASE_USER'] = 'haard'
+    app.config['MYSQL_DATABASE_USER'] = 'root'
     app.config['MYSQL_DATABASE_PASSWORD'] = 'password'
     app.config['MYSQL_DATABASE_DB'] = 'NBA_Project'
     app.config['MYSQL_DATABASE_HOST'] = 'localhost'

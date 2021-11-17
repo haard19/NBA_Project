@@ -1,0 +1,58 @@
+<doctype html="">
+    <title>Fantasy Team</title>
+    <style>
+        table, td, th {
+            border: 1px solid black;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 70%;
+        }
+
+        th {
+            text-align: left;
+        }
+    </style>
+    <h3>Fantasy Team</h3>
+    
+    <body>
+        <form class="fantasyplayer" method="post">
+        <table>
+            <thread>
+            <th>Name</th>
+            <th>Points</th>
+            </thread>
+            <tbody>
+                {% for row in data %}
+                <tr>
+                    {% for d in row %}
+                    <td>{{ d }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <h3></h3>
+            <br><br>
+            <h2>Add new fantasy player:</h2> 
+            <select id="byplayer" name="fantasyplayer">
+                <option disabled selected>Select Player</option>
+                {% for d in data1 %}
+                <option>
+                    {{ d[0] }}
+                </option>
+                {% endfor %}
+            </select>
+            <input type="submit" name="action" value=">>" />
+            <input type="submit" name="action" value="Add New Fantasy Player" />
+            <br><br>
+            
+            <input type="submit" name="action" value="Back" />
+           
+        </form>
+        
+        <br><br>
+        
+    </body>
+    </doctype>
