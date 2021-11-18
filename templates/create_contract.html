@@ -1,0 +1,37 @@
+<doctype html="">
+    <title>New Contract</title>
+    <h2>New contract</h2>
+    {% with messages = get_flashed_messages() %}
+    {% for msg in messages %}
+    <div class = 'display' color = 'red'> {{msg}}</div>
+    {% endfor %}
+    {% endwith %}
+    <body>
+        <form method = "post">
+            <input type="submit" name="action" value="Back" />
+        </form>
+        <form method="post" action = "{{ url_for('create_contract', p_id = x.p_id)}}"
+         onsubmit = "return confirm('are you asure?');">  
+            Player Name: {{x[0]}}
+        </form>
+
+        <form method="post">
+            <br>
+            Start date: 
+            <input type="text" class="update_contr" name="start_date" placeholder="YYYY-MM-DD" />
+            <br><br>
+            End date: 
+            <input type="text" class="update_contr" name="end_date" placeholder="YYYY-MM-DD" />
+            <br><br>
+            Salary: 
+            <input type="text" class="update_contr" name="salary" placeholder="$00000.00"/>
+            <br><br>
+            <input type="submit" name="action" value="Submit" />
+            <br>
+
+        </form>
+        
+        <br><br>
+        
+    </body>
+    </doctype>

@@ -1,0 +1,43 @@
+<doctype html="">
+    <title>Fantasy Team</title>
+    <style>
+        table, td, th {
+            border: 1px solid black;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 70%;
+        }
+
+        th {
+            text-align: left;
+        }
+    </style>
+    <h3>Create Fantasy Team</h3>
+
+    <body>
+        <form class="fantasyplayer" method="post">
+        <input type="text" name="team_name" placeholder="{{ team_name }}" value="{{ team_name }}" id="team_name">
+        <table>
+            <thread>
+            <th>Player</th>
+            <th>Team</th>
+            <th>Points</th>
+            <th>Add</th>
+            </thread>
+            <tbody>
+                {% for row in data %}
+                <tr>
+                    <td>{{ row['Player'] }}</td>
+                    <td>{{ row['Team'] }}</td>
+                    <td>{{ row['Points'] }}</td>
+                    <td><input type="submit" name="{{ row['p_id'] }}" value="Add"/></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </form>
+        <br><br>
+    </body>
+    </doctype>
