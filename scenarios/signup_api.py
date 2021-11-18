@@ -1,5 +1,5 @@
 from mysql_conn import exec_sql
-import json
+import json, hashlib
 
 
 def success(request_data, conn):

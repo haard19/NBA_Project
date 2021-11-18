@@ -1,5 +1,4 @@
 from mysql_conn import exec_sql
-import hashlib
 
 
 def success(username, pwd, conn):

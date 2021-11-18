@@ -2,7 +2,7 @@ from os import abort
 from flask import Flask, request, render_template
 from werkzeug.utils import redirect
 from mysql_conn import sql_conn
-import json
+import json, hashlib
 from scenarios import login_api, signup_api, index_api, fan_home_api, view_fantasy_team_api
 from scenarios import create_fantasy_team_view, add_fantasy_team_view, view_all_messages_api
 from scenarios import add_message_api, manager_home_view, contracts_api, update_contract, create_contract_api
@@ -23,7 +23,7 @@ def index():
 def logout():
     global USER_ID
     USER_ID = -1
-    return redirect('/')
+    return redirect('/login')
 
 
 @app.route('/login', methods=['POST', 'GET'])
@@ -92,14 +92,6 @@ def create_fantasy_team():
         return render_template('create_fantasy_team.html', data=data, team_name=team_name)
     else:
         return render_template('create_fantasy_team.html', data=data, team_name="Team Name")
-
-
-# @app.route('/add_fantasy_team', methods=['POST'])
-# def add_fantasy_team():
-#     player_ids = request.get_json()['player_ids']
-#     team_name = request.get_json()['team_name']
-#     data = add_fantasy_team_view.get_info(conn, USER_ID, player_ids, team_name)
-#     return data
 
 
 @app.route('/message-board', methods=['GET', 'POST'])
