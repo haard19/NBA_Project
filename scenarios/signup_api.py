@@ -3,7 +3,7 @@ import json
 
 
 def success(request_data, conn):
-    pwd = request_data.get('password')
+    pwd = hashlib.md5(request_data.get('password').encode()).hexdigest()
     last_name = request_data.get('lastname')
     first_name = request_data.get('firstname')
     phone = request_data.get('phone')

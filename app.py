@@ -33,7 +33,7 @@ def login():
     else:
         request_data = json.loads(json.dumps(request.form))
         username = request_data.get('email')
-        pwd = request_data.get('password')
+        pwd = hashlib.md5(request_data.get('password').encode()).hexdigest()
         if not username or not pwd:
             abort()
         else:
