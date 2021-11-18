@@ -53,7 +53,6 @@ def login():
 def signup():
     if request.method == 'GET':
         data = json.loads(signup_api.give_data(conn))
-        print(data)
         return render_template('register.html', data=data)
     else:
         request_data = json.loads(json.dumps(request.form))
@@ -66,40 +65,52 @@ def signup():
 @app.route('/fan_home', methods=['POST', 'GET'])
 def fan_home():
     data = fan_home_api.get_info(conn, USER_ID)
-    return render_template('bootstrap_dupli.html', data=data['team'], data_two = data['player'])
+    return render_template('bootstrap_dupli.html', data=data['team'], data_two=data['player'])
 
 
-@app.route('/view_fantasy_team', methods=['POST', 'GET'])
+@app.route('/view-fantasy-team', methods=['POST', 'GET'])
 def view_fantasy_team():
     data = view_fantasy_team_api.get_info(conn, USER_ID)
-    return data
+    if request.method == 'POST':
+        if request.form['action'] == "Back":
+            return redirect('/fan_home')
+    if len(data) == 0:
+        return redirect('/create-fantasy-team')
+    return render_template('fantasyteam.html', data=data)
 
 
-@app.route('/create_fantasy_team', methods=['GET'])
+@app.route('/create-fantasy-team', methods=['GET', 'POST'])
 def create_fantasy_team():
     data = create_fantasy_team_view.get_info(conn)
-    return data
+    if request.method == 'POST':
+        p_id = str(str(request.form.keys()).split(' ')[1]).split("'")[1]
+        team_name = request.form['team_name']
+        if len(team_name) == 0:
+            team_name = "myTeam"+p_id
+        if add_fantasy_team_view.get_info(conn, USER_ID, p_id, team_name):
+            return redirect('/view-fantasy-team')
+        return render_template('create_fantasy_team.html', data=data, team_name=team_name)
+    else:
+        return render_template('create_fantasy_team.html', data=data, team_name="Team Name")
 
 
-@app.route('/add_fantasy_team', methods=['POST'])
-def add_fantasy_team():
-    player_ids = request.get_json()['player_ids']
-    team_name = request.get_json()['team_name']
-    data = add_fantasy_team_view.get_info(conn, USER_ID, player_ids, team_name)
-    return data
+# @app.route('/add_fantasy_team', methods=['POST'])
+# def add_fantasy_team():
+#     player_ids = request.get_json()['player_ids']
+#     team_name = request.get_json()['team_name']
+#     data = add_fantasy_team_view.get_info(conn, USER_ID, player_ids, team_name)
+#     return data
 
 
-@app.route('/message-board', methods=['GET'])
+@app.route('/message-board', methods=['GET', 'POST'])
 def view_messages():
+    if request.method == 'POST':
+        if request.form['action'] == "Back":
+            return redirect('/fan_home')
+        message = request.form['message']
+        add_message_api.get_info(conn, USER_ID, message)
     data = view_all_messages_api.get_info(conn)
-    return data
-
-
-@app.route('/add-message', methods=['POST'])
-def add_message():
-    message = request.get_json()['message']
-    data = add_message_api.get_info(conn, USER_ID, message)
-    return redirect('/message-board')
+    return render_template('messageboard.html', data=data)
 
 
 @app.route('/manager-home', methods=['GET', 'POST'])
@@ -126,7 +137,7 @@ def contracts():
     return render_template('contract.html', data1=data.get("data1"), data2=data.get("data2"), team_name=data.get("team_name"))
 
 
-@app.route("/update_current_contract/<p_id>", methods=['POST', 'GETq'])
+@app.route("/update_current_contract/<p_id>", methods=['POST', 'GET'])
 def update_current_contract(p_id):
     data = update_contract.update_current_contract(conn, USER_ID, p_id, request)
     if not data:

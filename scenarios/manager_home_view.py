@@ -1,4 +1,3 @@
-from app import USER_ID
 from mysql_conn import exec_sql
 import json
 

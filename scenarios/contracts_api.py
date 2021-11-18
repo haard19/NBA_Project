@@ -68,7 +68,7 @@ def get_info(conn, id, request):
                                     c.wage AS Wage
                                     FROM Contract c
                                     NATURAL JOIN Player p
-                                    WHERE c.mg_id =%s;
+                                    WHERE c.mg_id =%s and c.is_active = TRUE;
                                     """)
 
     cur.execute(contract_mg_id_table_query, mg_id)
@@ -129,7 +129,7 @@ def get_info(conn, id, request):
                                     NATURAL JOIN Team t 
                                     NATURAL JOIN Contract c
                                     NATURAL JOIN Stats s 
-                                    WHERE p.p_id IN """ + str_player_id + """
+                                    WHERE p.p_id IN """ + str_player_id + """ and c.is_active = TRUE
                                     GROUP BY p.p_id, c.end_date, c.wage;
                                     """)
             cur.execute(contract_p_id_table_query)

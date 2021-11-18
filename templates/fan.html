@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>Fan Home</title>
+    <div style='float: right;' class="hidden-overlay hidden-overlay--large-percent" > <a href="/logout"> Logout</a> </div>
+    <div style='float: right;' class="hidden-overlay hidden-overlay--large-percent" > <a href="/view_fantasy_team">Fantasy Team</a> </div>  
+    <div style='float: right;' class="hidden-overlay hidden-overlay--large-percent" > <a href="/message-board">Message Board</a> </div>
+    
+    <style>
+        table, td, th {
+            border: 1px solid black;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 70%;
+        }
+
+        th {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <form class="fan" method="post">
+        <h3>Fan Favourite Players</h3>
+        <table>
+            <thread>
+            <th>Player Name</th>
+            <th>Total Points</th>
+            <th>FGA</th>
+            <th>FGM</th>
+            <th>3P%</th>
+            <th>3PA</th>
+            <th>3PM</th>
+        
+            </thread>
+            <tbody>
+                {% for row in data %}
+                <tr>
+                    {% for d in row %}
+                    <td>{{ d }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<doctype html="">
+    <title>Fantasy Team</title>
+    <style>
+        table, td, th {
+            border: 1px solid black;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 70%;
+        }
+
+        th {
+            text-align: left;
+        }
+    </style>
+    <h3>{{ data[0]['team_name'] }}</h3>
+    
+    <body>
+        <form class="fantasyplayer" method="post">
+        <table>
+            <thread>
+            <th>Name</th>
+            <th>Points</th>
+            </thread>
+            <tbody>
+                {% for row in data %}
+                <tr>
+                    <td>{{ row['Player'] }}</td>
+                    <td>{{ row['total_points'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <input type="submit" name="action" value="Back" />
+        </form>
+        <br><br>
+    </body>
+    </doctype>

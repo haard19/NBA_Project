@@ -12,10 +12,8 @@ def success(request_data, conn):
     query = f"SELECT t_id from Team WHERE t_name = '{fav_team}';"
     fan_data = exec_sql(query, conn)[0][0]
     query = f"CALL NBA_Project.signup('{first_name}', '{last_name}', '{phone}', '{email}', '{pwd}', {fan_data});"
-    print(query)
     data = exec_sql(query, conn)[0][0]
-    if data==1:
-        print("In 1")
+    if data == 1:
         return True
     return False
 
