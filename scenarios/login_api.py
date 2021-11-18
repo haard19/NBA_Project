@@ -1,6 +1,5 @@
 # SJSU CMPE 138 Fall 2021 TEAM8
 from mysql_conn import exec_sql
-import hashlib
 
 
 def success(username, pwd, conn):

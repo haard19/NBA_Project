@@ -3,6 +3,7 @@ from mysql_conn import exec_sql
 import json
 import hashlib
 
+
 def success(request_data, conn):
     pwd = hashlib.md5(request_data.get('password').encode()).hexdigest()
     last_name = request_data.get('lastname')

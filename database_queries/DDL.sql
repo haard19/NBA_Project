@@ -264,12 +264,12 @@ DELIMITER ;
 -- Triggers
 -- Dynamic Stats Points
 DELIMITER $$
+USE NBA_Project;
 CREATE DEFINER=`root`@`localhost` TRIGGER `set_dynamic_stats` BEFORE INSERT ON `Stats` FOR EACH ROW BEGIN
 	SET `NEW`.tot_points = `NEW`.FGM + `NEW`.`3PM`;
 	SET `NEW`.`3P%` = (CASE WHEN `NEW`.`3PA`=0 THEN 0 ELSE `NEW`.`3PM`/`NEW`.`3PA`* 100 END);
 END $$
 DELIMITER ;
-
 
 -- Update FT Points
 DELIMITER $$

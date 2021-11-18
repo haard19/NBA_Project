@@ -74,7 +74,7 @@ CREATE TABLE `Fan` (
 
 LOCK TABLES `Fan` WRITE;
 /*!40000 ALTER TABLE `Fan` DISABLE KEYS */;
-INSERT INTO `Fan` VALUES (6,4),(7,5);
+INSERT INTO `Fan` VALUES (6,3);
 /*!40000 ALTER TABLE `Fan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,7 +94,7 @@ CREATE TABLE `Fantasy_Team` (
   UNIQUE KEY `ft_name` (`ft_name`),
   KEY `fk_Fantasy_Team_Fan` (`f_id`),
   CONSTRAINT `fk_Fantasy_Team_Fan` FOREIGN KEY (`f_id`) REFERENCES `Fan` (`f_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +103,7 @@ CREATE TABLE `Fantasy_Team` (
 
 LOCK TABLES `Fantasy_Team` WRITE;
 /*!40000 ALTER TABLE `Fantasy_Team` DISABLE KEYS */;
-INSERT INTO `Fantasy_Team` VALUES (1,'The Invincibles',0,6),(2,'All or Nothing',0,7);
+INSERT INTO `Fantasy_Team` VALUES (1,'Team Name',0,6);
 /*!40000 ALTER TABLE `Fantasy_Team` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -181,7 +181,6 @@ CREATE TABLE `Message` (
 
 LOCK TABLES `Message` WRITE;
 /*!40000 ALTER TABLE `Message` DISABLE KEYS */;
-INSERT INTO `Message` VALUES (6,'2021-11-18 01:15:13','Hey! First message'),(7,'2021-11-18 01:29:25','Go Lakers!!');
 /*!40000 ALTER TABLE `Message` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -270,7 +269,7 @@ CREATE TABLE `Players_Fantasy_Team` (
 
 LOCK TABLES `Players_Fantasy_Team` WRITE;
 /*!40000 ALTER TABLE `Players_Fantasy_Team` DISABLE KEYS */;
-INSERT INTO `Players_Fantasy_Team` VALUES (1,21),(1,25),(1,19),(1,4),(1,20),(1,15),(2,27),(2,18),(2,15),(2,7),(2,30),(2,14);
+INSERT INTO `Players_Fantasy_Team` VALUES (1,21),(1,27),(1,11),(1,14),(1,19),(1,2);
 /*!40000 ALTER TABLE `Players_Fantasy_Team` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -296,7 +295,7 @@ CREATE TABLE `Stats` (
   KEY `fk_MatchID` (`m_id`),
   CONSTRAINT `fk_MatchID` FOREIGN KEY (`m_id`) REFERENCES `Match` (`m_id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_PlayerID` FOREIGN KEY (`p_id`) REFERENCES `Player` (`p_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -305,7 +304,7 @@ CREATE TABLE `Stats` (
 
 LOCK TABLES `Stats` WRITE;
 /*!40000 ALTER TABLE `Stats` DISABLE KEYS */;
-INSERT INTO `Stats` VALUES (1,1,1,12,19,11,20.00,5,1),(2,2,1,13,20,8,38.46,13,5),(3,3,1,10,18,9,25.00,4,1),(4,4,1,12,21,9,33.33,9,3),(5,5,1,9,19,9,0.00,2,0),(6,6,1,11,19,9,33.33,6,2),(7,7,1,10,20,9,25.00,4,1),(8,8,1,12,22,9,30.00,10,3),(9,9,1,11,19,9,28.57,7,2),(10,10,1,10,16,9,25.00,4,1),(11,11,1,12,19,11,20.00,5,1),(12,12,1,13,20,8,38.46,13,5),(13,13,2,2,10,1,50.00,2,1),(14,14,2,13,13,9,30.77,13,4),(15,15,2,10,21,9,33.33,3,1),(16,16,2,12,15,9,100.00,3,3),(17,17,2,11,10,9,66.67,3,2),(18,18,2,6,9,6,0.00,6,0),(19,19,2,13,9,8,71.43,7,5),(20,20,2,21,21,19,25.00,8,2),(21,21,2,14,19,10,57.14,7,4),(22,22,2,2,14,2,0.00,4,0),(23,23,2,9,20,8,33.33,3,1),(24,24,2,6,4,4,66.67,3,2),(25,1,3,3,9,1,40.00,5,2),(26,2,3,11,10,7,44.44,9,4),(27,3,3,10,15,9,33.33,3,1),(28,4,3,12,11,9,75.00,4,3),(29,5,3,15,20,15,0.00,4,0),(30,6,3,2,2,1,100.00,1,1),(31,19,3,12,19,8,57.14,7,4),(32,20,3,11,12,8,75.00,4,3),(33,21,3,20,20,15,83.33,6,5),(34,22,3,12,13,12,0.00,1,0),(35,23,3,9,18,8,50.00,2,1),(36,24,3,4,3,3,100.00,1,1),(37,7,4,3,9,1,40.00,5,2),(38,8,4,11,10,7,44.44,9,4),(39,9,4,10,15,9,33.33,3,1),(40,10,4,12,11,9,75.00,4,3),(41,11,4,15,20,15,0.00,4,0),(42,12,4,2,2,1,100.00,1,1),(43,25,4,12,19,8,57.14,7,4),(44,26,4,11,12,8,75.00,4,3),(45,27,4,20,20,15,83.33,6,5),(46,28,4,12,13,12,0.00,1,0),(47,29,4,9,18,8,50.00,2,1),(48,30,4,4,3,3,100.00,1,1),(49,13,5,6,11,4,40.00,5,2),(50,14,5,13,15,9,66.67,6,4),(51,15,5,10,10,9,100.00,1,1),(52,16,5,5,14,4,33.33,3,1),(53,17,5,9,20,7,25.00,8,2),(54,18,5,18,19,16,66.67,3,2),(55,25,5,3,10,2,14.29,7,1),(56,26,5,1,8,1,0.00,3,0),(57,27,5,12,21,10,33.33,6,2),(58,28,5,5,10,4,50.00,2,1),(59,29,5,6,11,6,0.00,1,0),(60,30,5,3,4,3,0.00,0,0);
+INSERT INTO `Stats` VALUES (3,1,1,12,19,11,20.00,5,1),(4,2,1,13,20,8,38.46,13,5),(5,3,1,10,18,9,25.00,4,1),(6,4,1,12,21,9,33.33,9,3),(7,5,1,9,19,9,0.00,2,0),(8,6,1,11,19,9,33.33,6,2),(9,7,1,10,20,9,25.00,4,1),(10,8,1,12,22,9,30.00,10,3),(11,9,1,11,19,9,28.57,7,2),(12,10,1,10,16,9,25.00,4,1),(13,11,1,12,19,11,20.00,5,1),(14,12,1,13,20,8,38.46,13,5),(15,13,2,2,10,1,50.00,2,1),(16,14,2,13,13,9,30.77,13,4),(17,15,2,10,21,9,33.33,3,1),(18,16,2,12,15,9,100.00,3,3),(19,17,2,11,10,9,66.67,3,2),(20,18,2,6,9,6,0.00,6,0),(21,19,2,13,9,8,71.43,7,5),(22,20,2,21,21,19,25.00,8,2),(23,21,2,14,19,10,57.14,7,4),(24,22,2,2,14,2,0.00,4,0),(25,23,2,9,20,8,33.33,3,1),(26,24,2,6,4,4,66.67,3,2),(27,1,3,3,9,1,40.00,5,2),(28,2,3,11,10,7,44.44,9,4),(29,3,3,10,15,9,33.33,3,1),(30,4,3,12,11,9,75.00,4,3),(31,5,3,15,20,15,0.00,4,0),(32,6,3,2,2,1,100.00,1,1),(33,19,3,12,19,8,57.14,7,4),(34,20,3,11,12,8,75.00,4,3),(35,21,3,20,20,15,83.33,6,5),(36,22,3,12,13,12,0.00,1,0),(37,23,3,9,18,8,50.00,2,1),(38,24,3,4,3,3,100.00,1,1),(39,7,4,3,9,1,40.00,5,2),(40,8,4,11,10,7,44.44,9,4),(41,9,4,10,15,9,33.33,3,1),(42,10,4,12,11,9,75.00,4,3),(43,11,4,15,20,15,0.00,4,0),(44,12,4,2,2,1,100.00,1,1),(45,25,4,12,19,8,57.14,7,4),(46,26,4,11,12,8,75.00,4,3),(47,27,4,20,20,15,83.33,6,5),(48,28,4,12,13,12,0.00,1,0),(49,29,4,9,18,8,50.00,2,1),(50,30,4,4,3,3,100.00,1,1),(51,13,5,6,11,4,40.00,5,2),(52,14,5,13,15,9,66.67,6,4),(53,15,5,10,10,9,100.00,1,1),(54,16,5,5,14,4,33.33,3,1),(55,17,5,9,20,7,25.00,8,2),(56,18,5,18,19,16,66.67,3,2),(57,25,5,3,10,2,14.29,7,1),(58,26,5,1,8,1,0.00,3,0),(59,27,5,12,21,10,33.33,6,2),(60,28,5,5,10,4,50.00,2,1),(61,29,5,6,11,6,0.00,1,0),(62,30,5,3,4,3,0.00,0,0);
 /*!40000 ALTER TABLE `Stats` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -315,7 +314,7 @@ UNLOCK TABLES;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'ALLOW_INVALID_DATES' */ ;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `set_dynamic_stats` BEFORE INSERT ON `Stats` FOR EACH ROW BEGIN
 	SET `NEW`.tot_points = `NEW`.FGM + `NEW`.`3PM`;
@@ -391,7 +390,7 @@ CREATE TABLE `User` (
   `u_pwd` varchar(45) NOT NULL,
   PRIMARY KEY (`u_id`),
   UNIQUE KEY `u_email` (`u_email`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -400,24 +399,9 @@ CREATE TABLE `User` (
 
 LOCK TABLES `User` WRITE;
 /*!40000 ALTER TABLE `User` DISABLE KEYS */;
-INSERT INTO `User` VALUES (1,'Doc','Revers','6501239277','doc_r@gmail.com','4ace452a5b7a3cf8005ab663294695c7'),(2,'Quin','Synder','4156281984','q_syn_der@yahoo.com','cc5d62fe6b2a54d1b4487689831aa4fa'),(3,'Tom','Thibodeau','1236281124','th_tom_23@gmail.com','687c7de66dab105a657df3a4ef7dda48'),(4,'Steve','Kerr','9988844321','s_kerr@gmail.com','d72ec40a244236891276c18f43079e74'),(5,'Frank','Vogel','1221344356','f_vogel@gmail.com','023ee50d55847a9d0b68eb96da0167f2'),(6,'Haard','Shah','9876543210','haard@gmail.com','7a2670a1579cb583cb77c4ea0c778627'),(7,'Ronak','Prajapati','9876543211','ronak@gmail.com','819a2dc28e0f1ead59dcd8abaa8b7199');
+INSERT INTO `User` VALUES (1,'Doc','Revers','6501239277','doc_r@gmail.com','4ace452a5b7a3cf8005ab663294695c7'),(2,'Quin','Synder','4156281984','q_syn_der@yahoo.com','cc5d62fe6b2a54d1b4487689831aa4fa'),(3,'Tom','Thibodeau','1236281124','th_tom_23@gmail.com','687c7de66dab105a657df3a4ef7dda48'),(4,'Steve','Kerr','9988844321','s_kerr@gmail.com','d72ec40a244236891276c18f43079e74'),(5,'Frank','Vogel','1221344356','f_vogel@gmail.com','023ee50d55847a9d0b68eb96da0167f2'),(6,'Ronak','P','9876543210','ronak@gmail.com','819a2dc28e0f1ead59dcd8abaa8b7199');
 /*!40000 ALTER TABLE `User` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Temporary view structure for view `create_new_fantasy_team_view`
---
-
-DROP TABLE IF EXISTS `create_new_fantasy_team_view`;
-/*!50001 DROP VIEW IF EXISTS `create_new_fantasy_team_view`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `create_new_fantasy_team_view` AS SELECT 
- 1 AS `p_id`,
- 1 AS `Player`,
- 1 AS `Team`,
- 1 AS `Points`*/;
-SET character_set_client = @saved_cs_client;
 
 --
 -- Temporary view structure for view `create_new_ft_view`
@@ -441,50 +425,6 @@ SET character_set_client = @saved_cs_client;
 --
 -- Dumping routines for database 'NBA_Project'
 --
-/*!50003 DROP FUNCTION IF EXISTS `login` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`haard`@`localhost` FUNCTION `login`(input_uid int, input_upwd varchar(45)) RETURNS tinyint(1)
-    READS SQL DATA
-BEGIN
-	RETURN EXISTS (SELECT u.u_id FROM `NBA_Project`.`User` as u WHERE u.u_id = input_uid AND u.u_pwd = input_upwd);
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `signup` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`haard`@`localhost` FUNCTION `signup`(input_ufname varchar(100), input_ulname varchar(100), input_uphone varchar(45), input_uemail varchar(100), input_upwd varchar(45)) RETURNS tinyint(1)
-    READS SQL DATA
-    DETERMINISTIC
-BEGIN
-	DECLARE EXIT HANDLER FOR SQLEXCEPTION RETURN False;
-	INSERT INTO `NBA_Project`.`User` (u_fname, u_lname, u_phone, u_email, u_pwd) VALUES(input_ufname, input_ulname, input_uphone, input_uemail, input_upwd);
-	INSERT INTO `NBA_Project`.`Fan` (f_id, fav_team) VALUES ((SELECT u.u_id from `NBA_Project`.`User` as u WHERE u.u_email = input_uemail), NULL);
-    RETURN True;
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `create_fantasy_team` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -565,7 +505,7 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sign_new_contract`(inp_mgid INT, inp_pid INT, inp_startdate DATE, inp_enddate DATE, inp_wage DECIMAL(12, 2))
 BEGIN
 	UPDATE `NBA_Project`.`Contract` AS C SET C.is_active = FALSE WHERE C.p_id = inp_pid;
-	INSERT INTO `NBA_Project`.`Contract` (mg_id, p_id, start_date, end_date, is_active, wage) 
+	INSERT INTO `NBA_Project`.`Contract` (mg_id, p_id, start_date, end_date, is_active, wage)
 		VALUES(inp_mgid, inp_pid, inp_startdate, inp_enddate, TRUE, inp_wage);
 	UPDATE `NBA_Project`.`Player` AS P SET P.t_id = (SELECT T.T_id FROM `NBA_Project`.`Team` AS T WHERE T.mg_id = inp_mgid)
 		WHERE P.p_id = inp_pid;
@@ -603,24 +543,6 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
--- Final view structure for view `create_new_fantasy_team_view`
---
-
-/*!50001 DROP VIEW IF EXISTS `create_new_fantasy_team_view`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`haard`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `create_new_fantasy_team_view` AS select `p`.`p_id` AS `p_id`,`p`.`p_name` AS `Player`,`t`.`t_name` AS `Team`,sum(`s`.`tot_points`) AS `Points` from ((`Player` `p` join `Team` `t` on((`p`.`t_id` = `t`.`t_id`))) join `Stats` `s` on((`p`.`p_id` = `s`.`p_id`))) group by `p`.`p_id`,`t`.`t_id` order by `Points` desc */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
 -- Final view structure for view `create_new_ft_view`
 --
 
@@ -647,4 +569,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-17 20:34:43
+-- Dump completed on 2021-11-17 23:53:37

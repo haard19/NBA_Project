@@ -206,5 +206,5 @@ insert into NBA_Project.Stats (p_id, m_id, FGA, FGM, `3PA`, `3PM`) values (30, 5
 
 
 -- Message
--- insert into NBA_Project.Message values (3, '2020-02-21 20:30:00', 'Big weekend in progress as my favourite team is playing');
--- insert into NBA_Project.Message values (4, '2020-03-11 21:50:40', 'Had a great birthday as my team won!');
+--insert into NBA_Project.Message values (3, '2020-02-21 20:30:00', 'Big weekend in progress as my favourite team is playing');
+--insert into NBA_Project.Message values (4, '2020-03-11 21:50:40', 'Had a great birthday as my team won!');

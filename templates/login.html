@@ -25,11 +25,18 @@
 			   <i class="fas fa-user"></i>
 			   </label>
 			    <select name="type">
-        <option value="None">Select User Type</option>
-        <option value="Manager">Manager</option>
-		<option value="Fan">Fan</option>        
-         </select>
+				<option value="None">Select User Type</option>
+				<option value="Manager">Manager</option>
+				<option value="Fan">Fan</option>
+				</select></br></ber>
+				{% with messages = get_flashed_messages() %}
+				{% for msg in messages %}
+				</br>
+				<div class = 'display' color = 'red'> {{msg}}</div>
+				{% endfor %}
+				{% endwith %}</br></br>
 				<input type="submit" value="Login">
+
 			</form>
 		</div>
 	</body>
