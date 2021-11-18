@@ -1,3 +1,4 @@
+# SJSU CMPE 138 Fall 2021 TEAM8
 from flask import Markup, flash, url_for, redirect, render_template
 from mysql_conn import exec_sql
 
@@ -8,7 +9,7 @@ def create_contract(conn, mg_id, p_id, request):
         if request.form['action'] == "Submit":
             sign_new_contract = f"""CALL sign_new_contract({mg_id}, {p_id}, '{request.form['start_date']}', '{request.form['end_date']}', {request.form['salary']})"""
             if exec_sql(sign_new_contract, conn):
-                status = Markup("<h3> Completed! </h3>")
+                status = Markup("<h3> </h3>")
             else:
                 status = Markup("<h3> Internal Server Error! Please try again after sometime. </h3>")
             flash(status)

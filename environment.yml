@@ -1,3 +1,4 @@
+# SJSU CMPE 138 Fall 2021 TEAM8
 name: NBA_Proj_Env
 channels:
   - conda-forge

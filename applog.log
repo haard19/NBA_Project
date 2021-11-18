@@ -1,0 +1,56 @@
+2021-11-17 22:28:07,237 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-17 22:28:07,714 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-17 22:28:07,720 INFO werkzeug MainThread :  * Debugger PIN: 593-753-186
+2021-11-17 22:28:07,777 INFO werkzeug Thread-1 :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-17 22:28:12,624 INFO werkzeug Thread-2 : 127.0.0.1 - - [17/Nov/2021 22:28:12] "GET / HTTP/1.1" 200 -
+2021-11-17 22:28:20,949 INFO werkzeug Thread-3 : 127.0.0.1 - - [17/Nov/2021 22:28:20] "GET /login HTTP/1.1" 200 -
+2021-11-17 22:28:21,332 INFO werkzeug Thread-4 : 127.0.0.1 - - [17/Nov/2021 22:28:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-11-17 22:28:35,680 INFO werkzeug Thread-5 : 127.0.0.1 - - [17/Nov/2021 22:28:35] "[32mPOST /login HTTP/1.1[0m" 302 -
+2021-11-17 22:28:35,697 INFO werkzeug Thread-6 : 127.0.0.1 - - [17/Nov/2021 22:28:35] "GET /manager-home HTTP/1.1" 200 -
+2021-11-17 22:28:40,668 INFO werkzeug Thread-7 : 127.0.0.1 - - [17/Nov/2021 22:28:40] "POST /manager-home HTTP/1.1" 200 -
+2021-11-17 22:28:42,907 INFO werkzeug Thread-8 : 127.0.0.1 - - [17/Nov/2021 22:28:42] "POST /manager-home HTTP/1.1" 200 -
+2021-11-17 22:29:14,581 INFO werkzeug Thread-9 : 127.0.0.1 - - [17/Nov/2021 22:29:14] "GET /contracts HTTP/1.1" 200 -
+2021-11-17 22:29:35,350 INFO werkzeug Thread-10 : 127.0.0.1 - - [17/Nov/2021 22:29:35] "GET /update_current_contract/5 HTTP/1.1" 200 -
+2021-11-17 22:30:41,788 INFO werkzeug Thread-12 : 127.0.0.1 - - [17/Nov/2021 22:30:41] "[32mPOST /update_current_contract/5 HTTP/1.1[0m" 302 -
+2021-11-17 22:30:41,796 INFO werkzeug Thread-13 : 127.0.0.1 - - [17/Nov/2021 22:30:41] "GET /contracts HTTP/1.1" 200 -
+2021-11-17 22:32:45,717 INFO werkzeug Thread-14 : 127.0.0.1 - - [17/Nov/2021 22:32:45] "POST /contracts HTTP/1.1" 200 -
+2021-11-17 22:32:56,484 INFO werkzeug Thread-15 : 127.0.0.1 - - [17/Nov/2021 22:32:56] "GET /create_contract/19 HTTP/1.1" 200 -
+2021-11-17 22:33:46,260 INFO werkzeug Thread-16 : 127.0.0.1 - - [17/Nov/2021 22:33:46] "[32mPOST /create_contract/19 HTTP/1.1[0m" 302 -
+2021-11-17 22:33:46,268 INFO werkzeug Thread-17 : 127.0.0.1 - - [17/Nov/2021 22:33:46] "GET /contracts HTTP/1.1" 200 -
+2021-11-17 22:33:53,371 INFO werkzeug Thread-18 : 127.0.0.1 - - [17/Nov/2021 22:33:53] "[32mPOST /contracts HTTP/1.1[0m" 302 -
+2021-11-17 22:33:53,377 INFO werkzeug Thread-19 : 127.0.0.1 - - [17/Nov/2021 22:33:53] "GET /manager-home HTTP/1.1" 200 -
+2021-11-17 22:33:57,002 INFO werkzeug Thread-20 : 127.0.0.1 - - [17/Nov/2021 22:33:57] "[32mGET /logout HTTP/1.1[0m" 302 -
+2021-11-17 22:33:57,010 INFO werkzeug Thread-21 : 127.0.0.1 - - [17/Nov/2021 22:33:57] "GET / HTTP/1.1" 200 -
+2021-11-17 22:33:59,661 INFO werkzeug Thread-22 : 127.0.0.1 - - [17/Nov/2021 22:33:59] "GET /signup HTTP/1.1" 200 -
+2021-11-17 22:33:59,685 INFO werkzeug Thread-23 : 127.0.0.1 - - [17/Nov/2021 22:33:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-11-17 22:34:26,429 INFO werkzeug Thread-24 : 127.0.0.1 - - [17/Nov/2021 22:34:26] "POST /signup HTTP/1.1" 200 -
+2021-11-17 22:34:26,447 INFO werkzeug Thread-25 : 127.0.0.1 - - [17/Nov/2021 22:34:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-11-17 22:34:38,110 INFO werkzeug Thread-26 : 127.0.0.1 - - [17/Nov/2021 22:34:38] "[32mPOST /login HTTP/1.1[0m" 302 -
+2021-11-17 22:34:38,123 INFO werkzeug Thread-27 : 127.0.0.1 - - [17/Nov/2021 22:34:38] "GET /fan_home HTTP/1.1" 200 -
+2021-11-17 22:34:41,600 INFO werkzeug Thread-28 : 127.0.0.1 - - [17/Nov/2021 22:34:41] "GET /message-board HTTP/1.1" 200 -
+2021-11-17 22:34:47,588 INFO werkzeug Thread-29 : 127.0.0.1 - - [17/Nov/2021 22:34:47] "[32mPOST /message-board HTTP/1.1[0m" 302 -
+2021-11-17 22:34:47,594 INFO werkzeug Thread-30 : 127.0.0.1 - - [17/Nov/2021 22:34:47] "GET /message-board HTTP/1.1" 200 -
+2021-11-17 22:34:58,998 INFO werkzeug Thread-31 : 127.0.0.1 - - [17/Nov/2021 22:34:58] "[32mPOST /message-board HTTP/1.1[0m" 302 -
+2021-11-17 22:34:59,003 INFO werkzeug Thread-32 : 127.0.0.1 - - [17/Nov/2021 22:34:59] "GET /message-board HTTP/1.1" 200 -
+2021-11-17 22:35:15,254 INFO werkzeug Thread-33 : 127.0.0.1 - - [17/Nov/2021 22:35:15] "[32mPOST /message-board HTTP/1.1[0m" 302 -
+2021-11-17 22:35:15,260 INFO werkzeug Thread-34 : 127.0.0.1 - - [17/Nov/2021 22:35:15] "GET /message-board HTTP/1.1" 200 -
+2021-11-17 22:35:18,310 INFO werkzeug Thread-35 : 127.0.0.1 - - [17/Nov/2021 22:35:18] "[32mGET /deletemessage/8/2021-11-17%2022:35:15 HTTP/1.1[0m" 302 -
+2021-11-17 22:35:18,316 INFO werkzeug Thread-36 : 127.0.0.1 - - [17/Nov/2021 22:35:18] "GET /message-board HTTP/1.1" 200 -
+2021-11-17 22:35:20,969 INFO werkzeug Thread-37 : 127.0.0.1 - - [17/Nov/2021 22:35:20] "[32mPOST /message-board HTTP/1.1[0m" 302 -
+2021-11-17 22:35:20,975 INFO werkzeug Thread-38 : 127.0.0.1 - - [17/Nov/2021 22:35:20] "GET /fan_home HTTP/1.1" 200 -
+2021-11-17 22:35:28,542 INFO werkzeug Thread-39 : 127.0.0.1 - - [17/Nov/2021 22:35:28] "[32mGET /view-fantasy-team HTTP/1.1[0m" 302 -
+2021-11-17 22:35:28,550 INFO werkzeug Thread-40 : 127.0.0.1 - - [17/Nov/2021 22:35:28] "GET /create-fantasy-team HTTP/1.1" 200 -
+2021-11-17 22:35:32,154 INFO werkzeug Thread-41 : 127.0.0.1 - - [17/Nov/2021 22:35:32] "POST /create-fantasy-team HTTP/1.1" 200 -
+2021-11-17 22:35:32,803 INFO werkzeug Thread-42 : 127.0.0.1 - - [17/Nov/2021 22:35:32] "POST /create-fantasy-team HTTP/1.1" 200 -
+2021-11-17 22:35:36,211 INFO werkzeug Thread-43 : 127.0.0.1 - - [17/Nov/2021 22:35:36] "POST /create-fantasy-team HTTP/1.1" 200 -
+2021-11-17 22:35:37,088 INFO werkzeug Thread-44 : 127.0.0.1 - - [17/Nov/2021 22:35:37] "POST /create-fantasy-team HTTP/1.1" 200 -
+2021-11-17 22:35:41,169 INFO werkzeug Thread-45 : 127.0.0.1 - - [17/Nov/2021 22:35:41] "POST /create-fantasy-team HTTP/1.1" 200 -
+2021-11-17 22:35:52,453 INFO werkzeug Thread-46 : 127.0.0.1 - - [17/Nov/2021 22:35:52] "[32mPOST /create-fantasy-team HTTP/1.1[0m" 302 -
+2021-11-17 22:35:52,460 INFO werkzeug Thread-47 : 127.0.0.1 - - [17/Nov/2021 22:35:52] "GET /view-fantasy-team HTTP/1.1" 200 -
+2021-11-17 22:36:10,163 INFO werkzeug Thread-48 : 127.0.0.1 - - [17/Nov/2021 22:36:10] "[32mPOST /view-fantasy-team HTTP/1.1[0m" 302 -
+2021-11-17 22:36:10,170 INFO werkzeug Thread-49 : 127.0.0.1 - - [17/Nov/2021 22:36:10] "GET /fan_home HTTP/1.1" 200 -
+2021-11-17 22:36:12,837 INFO werkzeug Thread-50 : 127.0.0.1 - - [17/Nov/2021 22:36:12] "GET /view-fantasy-team HTTP/1.1" 200 -
+2021-11-17 22:36:18,537 INFO werkzeug Thread-51 : 127.0.0.1 - - [17/Nov/2021 22:36:18] "[32mPOST /view-fantasy-team HTTP/1.1[0m" 302 -
+2021-11-17 22:36:18,544 INFO werkzeug Thread-52 : 127.0.0.1 - - [17/Nov/2021 22:36:18] "GET /fan_home HTTP/1.1" 200 -
+2021-11-17 22:37:17,340 INFO werkzeug Thread-53 : 127.0.0.1 - - [17/Nov/2021 22:37:17] "[32mGET /logout HTTP/1.1[0m" 302 -
+2021-11-17 22:37:17,348 INFO werkzeug Thread-54 : 127.0.0.1 - - [17/Nov/2021 22:37:17] "GET / HTTP/1.1" 200 -

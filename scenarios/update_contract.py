@@ -1,3 +1,4 @@
+# SJSU CMPE 138 Fall 2021 TEAM8
 from flask import Markup, flash, url_for, redirect, render_template
 from mysql_conn import exec_sql
 

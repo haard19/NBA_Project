@@ -1,2 +1,3 @@
+ ##SJSU CMPE 138 Fall 2021 TEAM8
  flask
  flask-mysql

@@ -1,6 +1,7 @@
+# SJSU CMPE 138 Fall 2021 TEAM8
 from mysql_conn import exec_sql
 import json
-
+import hashlib
 
 def success(request_data, conn):
     pwd = hashlib.md5(request_data.get('password').encode()).hexdigest()

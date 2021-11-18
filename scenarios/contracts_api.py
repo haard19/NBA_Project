@@ -1,3 +1,4 @@
+# SJSU CMPE 138 Fall 2021 TEAM8
 from mysql_conn import exec_sql
 from flask_table import Table, Col, LinkCol, ButtonCol
 from werkzeug.utils import redirect
