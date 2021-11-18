@@ -1,6 +1,7 @@
 DROP SCHEMA `NBA_Project`;
 
 CREATE SCHEMA `NBA_Project`;
+USE NBA_Project;
 
 
 CREATE TABLE `NBA_Project`.`User` (
@@ -137,7 +138,7 @@ CREATE TABLE `NBA_Project`.`Contract` (
   `end_date` DATE NOT NULL,
   `wage` DECIMAL(12,2) NOT NULL,
   `is_active` TINYINT NULL,
-  `duration` DECIMAL(5,2) AS (TIMESTAMPDIFF(YEAR,end_date,start_date)),
+  `duration` DECIMAL(5,2) AS (TIMESTAMPDIFF(YEAR,start_date,end_date)),
   PRIMARY KEY (`c_id`),
   CONSTRAINT `fk_Contract_PlayerID`
     FOREIGN KEY (`p_id`)
@@ -193,13 +194,17 @@ CREATE TABLE `NBA_Project`.`Message` (
 
  -- Stored Procedures
  -- Login
+DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `NBA_Project`.`login`(input_uemail varchar(100), input_upwd varchar(45))
 BEGIN
 	SELECT u.u_id FROM `NBA_Project`.`User` as u WHERE u.u_email = input_uemail AND u.u_pwd = input_upwd;
 END
+$$
+DELIMITER ;
 
 
 -- Signup
+DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `NBA_Project`.`signup`(input_ufname varchar(100), input_ulname varchar(100), input_uphone varchar(45), input_uemail varchar(100), input_upwd varchar(45), inp_ffavteamID INT)
 BEGIN
 	DECLARE EXIT HANDLER FOR SQLEXCEPTION SELECT 0;
@@ -207,9 +212,12 @@ BEGIN
 	INSERT INTO `NBA_Project`.`Fan` (f_id, fav_team) VALUES ((SELECT LAST_INSERT_ID()), inp_ffavteamID);
 	SELECT 1;
 END
+$$
+DELIMITER ;
 
 
 -- Create Fantasy Team
+DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `NBA_Project`.`create_fantasy_team`(inp_fid INT, inp_ftname VARCHAR(100), inp_pid1 INT, inp_pid2 INT, inp_pid3 INT, inp_pid4 INT, inp_pid5 INT, inp_pid6 INT)
 BEGIN
 	DECLARE EXIT HANDLER FOR SQLEXCEPTION SELECT 0;
@@ -221,8 +229,11 @@ BEGIN
 	INSERT INTO `NBA_Project`.`Players_Fantasy_Team` values ((SELECT LAST_INSERT_ID()), inp_pid5);
 	INSERT INTO `NBA_Project`.`Players_Fantasy_Team` values ((SELECT LAST_INSERT_ID()), inp_pid6);
 END
+$$
+DELIMITER ;
 
 -- View Fantasy Team
+DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `NBA_Project`.`view_fantasy_team`(inp_fid INT)
 BEGIN
 	SELECT p.p_name AS Player, ft.ft_name as team_name, CAST(SUM(tot_points) AS UNSIGNED) AS total_points
@@ -233,8 +244,11 @@ BEGIN
 	WHERE ft.f_id = inp_fid
 	GROUP BY s.p_id, ft.ft_id;
 END
+$$
+DELIMITER ;
 
 -- Sign New Contract
+DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `NBA_Project`.`sign_new_contract`(inp_mgid INT, inp_pid INT, inp_startdate DATE, inp_enddate DATE, inp_wage DECIMAL(12, 2))
 BEGIN
 	UPDATE `NBA_Project`.`Contract` AS C SET C.is_active = FALSE WHERE C.p_id = inp_pid;
@@ -243,23 +257,28 @@ BEGIN
 	UPDATE `NBA_Project`.`Player` AS P SET P.t_id = (SELECT T.T_id FROM `NBA_Project`.`Team` AS T WHERE T.mg_id = inp_mgid)
 		WHERE P.p_id = inp_pid;
 	SELECT 1;
-END
+END $$
+DELIMITER ;
 
 
 -- Triggers
 -- Dynamic Stats Points
+DELIMITER $$
 USE NBA_Project;
 CREATE DEFINER=`root`@`localhost` TRIGGER `set_dynamic_stats` BEFORE INSERT ON `Stats` FOR EACH ROW BEGIN
 	SET `NEW`.tot_points = `NEW`.FGM + `NEW`.`3PM`;
 	SET `NEW`.`3P%` = (CASE WHEN `NEW`.`3PA`=0 THEN 0 ELSE `NEW`.`3PM`/`NEW`.`3PA`* 100 END);
-END
+END $$
+DELIMITER ;
 
 -- Update FT Points
+DELIMITER $$
 CREATE DEFINER=`root`@`localhost` TRIGGER `update_ft_points` AFTER INSERT ON `Stats` FOR EACH ROW BEGIN
 	UPDATE `NBA_Project`.`Fantasy_Team` as FT
 	SET FT.total_points = FT.total_points + `NEW`.tot_points
 	WHERE FT.ft_id in (SELECT PFT.ft_id FROM `NBA_Project`.`Players_Fantasy_Team` AS PFT WHERE PFT.p_id = NEW.p_id);
-END
+END $$
+DELIMITER ;
 
 
 -- Views

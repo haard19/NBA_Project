@@ -4,5 +4,6 @@ channels:
 dependencies:
   - flask
   - flask-mysql
+  - hashlib
   - pip:
     - flask-table

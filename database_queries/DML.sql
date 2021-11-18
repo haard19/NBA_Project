@@ -1,10 +1,9 @@
 SET SQL_MODE='ALLOW_INVALID_DATES';
 
-
 -- User
 -- CALL NBA_Project.signup('Army', 'Patel', '9201241738', 'army.patel@yahoo.com', 'password1');
 -- pass_1$#34: 4ace452a5b7a3cf8005ab663294695c7
-insert into NBA_Project.User(u_fname,u_lname,u_phone,u_email,u_pwd) values ('Doc', 'Revers', '6501239277', 'doc_r@gmail.com', 'pass_1$#34');
+insert into NBA_Project.User(u_fname,u_lname,u_phone,u_email,u_pwd) values ('Doc', 'Revers', '6501239277', 'doc_r@gmail.com', '4ace452a5b7a3cf8005ab663294695c7');
 -- CALL NBA_Project.signup('Subhangi', 'Kumar', '7151531735', 'subhangikumar123@yahoo.com', 'password2');
 -- CALL NBA_Project.signup('Priya', 'Sood', '2121241739', 'priya1324@google.com', 'pwd12341234');
 -- password2312: cc5d62fe6b2a54d1b4487689831aa4fa
@@ -18,11 +17,11 @@ insert into NBA_Project.User(u_fname,u_lname,u_phone,u_email,u_pwd) values ('Fra
 
 
 -- Manager
-insert into NBA_Project.Manager values (2, '2015-02-21', 250000.00);
-insert into NBA_Project.Manager values (5, '2017-10-11', 150000.00);
-insert into NBA_Project.Manager values (6, '2018-09-01', 300000.00);
-insert into NBA_Project.Manager values (7, '2016-05-16', 270000.00);
-insert into NBA_Project.Manager values (8, '2019-01-20', 250000.00);
+insert into NBA_Project.Manager values (1, '2015-02-21', 250000.00);
+insert into NBA_Project.Manager values (2, '2017-10-11', 150000.00);
+insert into NBA_Project.Manager values (3, '2018-09-01', 300000.00);
+insert into NBA_Project.Manager values (4, '2016-05-16', 270000.00);
+insert into NBA_Project.Manager values (5, '2019-01-20', 250000.00);
 
 
 -- Match
@@ -34,11 +33,11 @@ insert into NBA_Project.Match(m_timestamp, m_venue, m_city) values ('2020-02-21 
 
 
 -- Team
-insert into NBA_Project.Team(t_name,t_city, t_stadiumname, mg_id) values ('Philadelphia 76ers', 'Philadelphia', 'Wells Fargo Center', 2);
-insert into NBA_Project.Team(t_name,t_city, t_stadiumname, mg_id) values ('Utah Jazz', 'Salt Lake City', 'Vivint Arena', 5);
-insert into NBA_Project.Team(t_name,t_city, t_stadiumname, mg_id) values ('New York Knicks', 'New York', 'Madison Square Garden', 6);
-insert into NBA_Project.Team(t_name,t_city, t_stadiumname, mg_id) values ('Golden State Warriors', 'San Francisco', 'Chase Center', 7);
-insert into NBA_Project.Team(t_name,t_city, t_stadiumname, mg_id) values ('Los Angeles Lakers', 'Los Angeles', 'STAPLES Center', 8);
+insert into NBA_Project.Team(t_name,t_city, t_stadiumname, mg_id) values ('Philadelphia 76ers', 'Philadelphia', 'Wells Fargo Center', 1);
+insert into NBA_Project.Team(t_name,t_city, t_stadiumname, mg_id) values ('Utah Jazz', 'Salt Lake City', 'Vivint Arena', 2);
+insert into NBA_Project.Team(t_name,t_city, t_stadiumname, mg_id) values ('New York Knicks', 'New York', 'Madison Square Garden', 3);
+insert into NBA_Project.Team(t_name,t_city, t_stadiumname, mg_id) values ('Golden State Warriors', 'San Francisco', 'Chase Center', 4);
+insert into NBA_Project.Team(t_name,t_city, t_stadiumname, mg_id) values ('Los Angeles Lakers', 'Los Angeles', 'STAPLES Center', 5);
 
 
 -- Player
@@ -87,46 +86,47 @@ insert into NBA_Project.Participates values (5, 3, 5, 3);
 
 
 -- Contract
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(2, 1, 350000.00, '2020-04-11', '2022-04-10', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(2, 2, 250000.00, '2020-03-10', '2023-03-09', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(2, 3, 157000.00, '2020-04-11', '2023-04-10', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(2, 4, 425600.00, '2019-10-11', '2022-10-10', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(2, 5, 155000.00, '2018-01-11', '2022-01-10', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(2, 6, 105000.00, '2019-04-11', '2022-04-10', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(1, 1, 350000.00, '2020-04-11', '2022-04-10', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(1, 2, 250000.00, '2020-03-10', '2023-03-09', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(1, 3, 157000.00, '2020-04-11', '2023-04-10', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(1, 4, 425600.00, '2019-10-11', '2022-10-10', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(1, 5, 155000.00, '2018-01-11', '2022-01-10', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(1, 6, 105000.00, '2019-04-11', '2022-04-10', 1);
 
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(5, 7, 235500.00, '2017-06-21', '2022-06-20', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(5, 8, 143000.00, '2019-11-07', '2022-11-06', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(5, 9, 321000.00, '2020-12-23', '2022-12-22', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(5, 10, 350700.00, '2016-10-13', '2022-10-12', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(5, 11, 270000.00, '2020-12-23', '2022-09-22', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(5, 12, 200700.00, '2016-10-13', '2022-10-12', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(2, 7, 235500.00, '2017-06-21', '2022-06-20', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(2, 8, 143000.00, '2019-11-07', '2022-11-06', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(2, 9, 321000.00, '2020-12-23', '2022-12-22', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(2, 10, 350700.00, '2016-10-13', '2022-10-12', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(2, 11, 270000.00, '2020-12-23', '2022-09-22', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(2, 12, 200700.00, '2016-10-13', '2022-10-12', 1);
 
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(6, 13, 342600.00, '2019-04-04', '2022-04-03', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(6, 14, 122000.00, '2016-11-27', '2021-11-26', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(6, 15, 144000.00, '2020-02-01', '2021-12-31', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(6, 16, 321000.00, '2015-06-23', '2022-06-22', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(6, 17, 181000.00, '2020-03-12', '2022-09-11', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(6, 18, 138000.00, '2021-02-02', '2022-02-01', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(3, 13, 342600.00, '2019-04-04', '2022-04-03', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(3, 14, 122000.00, '2016-11-27', '2021-11-26', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(3, 15, 144000.00, '2020-02-01', '2021-12-31', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(3, 16, 321000.00, '2015-06-23', '2022-06-22', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(3, 17, 181000.00, '2020-03-12', '2022-09-11', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(3, 18, 138000.00, '2021-02-02', '2022-02-01', 1);
 
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(7, 19, 257000.00, '2018-08-04', '2022-02-03', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(7, 20, 398000.00, '2019-06-17', '2026-06-16', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(7, 21, 294000.00, '2021-02-14', '2025-02-13', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(7, 22, 215000.00, '2018-04-03', '2022-04-02', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(7, 23, 235000.00, '2020-04-21', '2023-04-20', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(7, 24, 166000.00, '2021-10-07', '2022-10-06', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(4, 19, 257000.00, '2018-08-04', '2022-02-03', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(4, 20, 398000.00, '2019-06-17', '2026-06-16', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(4, 21, 294000.00, '2021-02-14', '2025-02-13', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(4, 22, 215000.00, '2018-04-03', '2022-04-02', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(4, 23, 235000.00, '2020-04-21', '2023-04-20', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(4, 24, 166000.00, '2021-10-07', '2022-10-06', 1);
 
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(8, 25, 150500.00, '2020-11-14', '2022-11-13', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(8, 26, 338000.00, '2013-07-27', '2022-07-26', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(8, 27, 278000.00, '2020-05-22', '2025-05-21', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(8, 28, 207700.00, '2019-05-14', '2024-05-13', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(8, 29, 390000.00, '2020-09-23', '2023-09-22', 1);
-insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(8, 30, 117700.00, '2019-05-29', '2022-11-28', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(5, 25, 150500.00, '2020-11-14', '2022-11-13', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(5, 26, 338000.00, '2013-07-27', '2022-07-26', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(5, 27, 278000.00, '2020-05-22', '2025-05-21', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(5, 28, 207700.00, '2019-05-14', '2024-05-13', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(5, 29, 390000.00, '2020-09-23', '2023-09-22', 1);
+insert into NBA_Project.Contract(mg_id,p_id,wage,start_date,end_date,is_active) values(5, 30, 117700.00, '2019-05-29', '2022-11-28', 1);
 
 
 -- Fantasy_team_create
-CALL `NBA_Project`.`create_fantasy_team`(3, 'ShubhangiTeam', 17, 24, 1, 7, 22, 23);
-CALL `NBA_Project`.`create_fantasy_team`(4, 'PTeam', 19, 5, 7, 17, 9, 10);
+-- CALL `NBA_Project`.`create_fantasy_team`(3, 'ShubhangiTeam', 17, 24, 1, 7, 22, 23);
+-- CALL `NBA_Project`.`create_fantasy_team`(4, 'PTeam', 19, 5, 7, 17, 9, 10);
 
+SET SQL_SAFE_UPDATES = 0;
 
 -- Stats
 -- Match1
@@ -206,5 +206,5 @@ insert into NBA_Project.Stats (p_id, m_id, FGA, FGM, `3PA`, `3PM`) values (30, 5
 
 
 -- Message
-insert into NBA_Project.Message values (3, '2020-02-21 20:30:00', 'Big weekend in progress as my favourite team is playing');
-insert into NBA_Project.Message values (4, '2020-03-11 21:50:40', 'Had a great birthday as my team won!');
+--insert into NBA_Project.Message values (3, '2020-02-21 20:30:00', 'Big weekend in progress as my favourite team is playing');
+--insert into NBA_Project.Message values (4, '2020-03-11 21:50:40', 'Had a great birthday as my team won!');
