@@ -26,19 +26,19 @@
         <form class="messageboard" method="post">
         <table>
             <thread>
-            <th>Date</th>
+            <th>Name</th>
             <th>Message Content</th>
+            <th>Date</th>
             </thread>
             <tbody>
-                {% for row in data1 %}
+                {% for row in data %}
                 <tr>
-                    {% for d in row %}
-                    <td>{{ d }}</td>
-                    {% endfor %}
+                    <td>{{ row['uname'] }}</td>
+                    <td>{{ row['msg_content'] }}</td>
+                    <td>{{ row['msg_timestamp'] }}</td>
                 </tr>
                 {% endfor %}
-            </tbody>
-        </table>
+            </tbody>        </table>
         <h3>Previously Posted Message by Me</h3>
         {{data2}}
             <br><br>
